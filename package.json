@@ -1,0 +1,14 @@
+{
+  "name": "sign",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "got": "^11.8.2",
+    "jsonwebtoken": "^8.5.1",
+    "nodemailer": "^6.7.8"
+  },
+  "scripts": {
+    "test": "node ./autoGame.js"
+  }
+}
