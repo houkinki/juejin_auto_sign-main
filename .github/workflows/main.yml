@@ -1,24 +1,24 @@
-name: coupons
+name: coupons # yml文件名
+
 on:
   push:
-    branches: [main]  # 确保分支名正确（非 master）
+    branches:
+      - main
   schedule:
-    - cron: '23 14 * * *'  # UTC 时间 11:58（北京时间 19:58）
+    - cron: '30 14 * * *'   # 定时运行的时间，国际标准时间，北京时间要+8
 
 jobs:
-  run-coupons:
+  run-coupons: # 任务名
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3  # ✅ 使用稳定版本 v3
+      - uses: actions/checkout@main  #采用main分支下的
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3  # ✅ 升级到 v3
+        uses: actions/setup-node@v2  #安装node.js
         with:
-          node-version: 14  # 建议升级到 LTS 版本（如 18/20）
+          node-version: '14'
 
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run Script
-        run: node ./app.js
+      - name: Install Dependency
+        run: |
+          npm install     
+          node ./app.js
